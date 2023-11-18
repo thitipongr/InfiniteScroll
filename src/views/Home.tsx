@@ -1,6 +1,6 @@
 import React from "react";
 import CardComponent from "../components/CardComponent";
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 const Home = () => {
   const data = [
@@ -28,7 +28,7 @@ const Home = () => {
     },
     {
       id: 167,
-      description: "Udemy",
+      description: "Udemy Udemy Udemy Udemy Udemy Udemy Udemy Udemy Udemy Udemy Udemy Udemy Udemy ",
       url: "https://www.udemy.com",
       types: ["podcast", "video", "tutorial"],
       topics: [
@@ -50,9 +50,15 @@ const Home = () => {
   ];
   return (
     <Container maxWidth="xl">
-      {data.map((dataDetail) => {
-        return <CardComponent data={dataDetail} />;
-      })}
+      <Grid container rowSpacing={2} columnSpacing={2}>
+        {data.map((dataDetail, index) => {
+          return (
+            <Grid item md={3} key={index}>
+              <CardComponent data={dataDetail} />
+            </Grid>
+          );
+        })}
+      </Grid>
     </Container>
   );
 };

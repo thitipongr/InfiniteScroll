@@ -27,23 +27,47 @@ const CardComponent = (props: CardComponentType) => {
     <Card variant="outlined">
       <CardMedia component="iframe" src={url} />
       <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          overflow={"scroll"}
+          sx={{ whiteSpace: "nowrap" }}
+        >
           {description}
         </Typography>
         <Stack spacing={1}>
-          <Stack direction={"row"} spacing={1}>
+          <Stack direction={"row"} spacing={1} overflow={"scroll"}>
             {types.map((typesData) => (
-              <Button variant="outlined">{typesData}</Button>
+              <Button
+                variant="outlined"
+                key={types.indexOf(typesData)}
+                sx={{ minWidth: "auto", whiteSpace: "nowrap" }}
+              >
+                {typesData.toUpperCase()}
+              </Button>
             ))}
           </Stack>
-          <Stack direction={"row"} spacing={1}>
-            {topics.map((typesData) => (
-              <Button variant="text">{typesData}</Button>
+          <Stack direction={"row"} spacing={1} overflow={"scroll"}>
+            {topics.map((topicsData) => (
+              <Button
+                variant="text"
+                key={topics.indexOf(topicsData)}
+                sx={{ minWidth: "auto", whiteSpace: "nowrap" }}
+              >
+                {topicsData}
+              </Button>
             ))}
           </Stack>
-          <Stack direction={"row"} spacing={1}>
-            {levels.map((typesData) => (
-              <Button variant="contained">{typesData}</Button>
+          <Stack direction={"row"} spacing={1} overflow={"scroll"}>
+            {levels.map((levelsData) => (
+              <Button
+                variant="contained"
+                key={levels.indexOf(levelsData)}
+                sx={{ minWidth: "auto", whiteSpace: "nowrap" }}
+              >
+                {levelsData}
+              </Button>
             ))}
           </Stack>
         </Stack>
