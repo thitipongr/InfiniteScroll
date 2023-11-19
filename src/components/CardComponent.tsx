@@ -18,6 +18,7 @@ type CardComponentType = {
     levels: string[];
   };
 };
+
 const CardComponent = (props: CardComponentType) => {
   const {
     data: { description, url, types, topics, levels },
@@ -31,13 +32,20 @@ const CardComponent = (props: CardComponentType) => {
           gutterBottom
           variant="h6"
           component="div"
-          overflow={"scroll"}
-          sx={{ whiteSpace: "nowrap" }}
+          sx={{
+            whiteSpace: "nowrap",
+            overflowY: "hidden",
+            overflowX: "scroll",
+          }}
         >
           {description}
         </Typography>
         <Stack spacing={1}>
-          <Stack direction={"row"} spacing={1} overflow={"scroll"}>
+          <Stack
+            direction={"row"}
+            spacing={1}
+            sx={{ overflowY: "hidden", overflowX: "scroll" }}
+          >
             {types.map((typesData) => (
               <Button
                 variant="outlined"
@@ -48,7 +56,11 @@ const CardComponent = (props: CardComponentType) => {
               </Button>
             ))}
           </Stack>
-          <Stack direction={"row"} spacing={1} overflow={"scroll"}>
+          <Stack
+            direction={"row"}
+            spacing={1}
+            sx={{ overflowY: "hidden", overflowX: "scroll" }}
+          >
             {topics.map((topicsData) => (
               <Button
                 variant="text"
@@ -59,7 +71,11 @@ const CardComponent = (props: CardComponentType) => {
               </Button>
             ))}
           </Stack>
-          <Stack direction={"row"} spacing={1} overflow={"scroll"}>
+          <Stack
+            direction={"row"}
+            spacing={1}
+            sx={{ overflowY: "hidden", overflowX: "scroll" }}
+          >
             {levels.map((levelsData) => (
               <Button
                 variant="contained"
