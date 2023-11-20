@@ -5,6 +5,7 @@ import {
   Typography,
   Stack,
   Button,
+  Box,
 } from "@mui/material";
 import React from "react";
 
@@ -26,7 +27,18 @@ const CardComponent = (props: CardComponentType) => {
 
   return (
     <Card variant="outlined">
-      <CardMedia component="iframe" src={url} />
+      <Box position={"relative"}>
+        <Box
+          component={"a"}
+          href={url}
+          target="_blank"
+          minWidth={"100%"}
+          minHeight={"100%"}
+          position={"absolute"}
+          zIndex={0}
+        />
+        <CardMedia component="iframe" src={url} sx={{ zIndex: -1 }} />
+      </Box>
       <CardContent>
         <Typography
           gutterBottom
